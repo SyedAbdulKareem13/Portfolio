@@ -1,0 +1,110 @@
+<div class="main">
+  <div class="body" (click)="handleMatIconClick($event)">
+    <div
+      class="epic-row-wrapper d-flex justify-content-between align-items-center container-lg"
+    >
+      <div
+        class="left-side-items d-flex justify-content-center align-items-center"
+      >
+        <div
+          class="epic-state d-flex justify-content-center align-items-center"
+        >
+          <mat-icon class="d-flex justify-content-center align-items-center"
+            >edit</mat-icon
+          >
+          <p matTooltip="Add Epic">{{ epicData[0].epicName }} /</p>
+          <p matTooltip="Add Feature ID">{{ epicData[0].epicNumber }} /</p>
+          <p matTooltip="Add Section ID">{{ epicData[0].epicSection }}</p>
+        </div>
+      </div>
+
+      <div
+        class="all-right-icons d-flex justify-content-center align-items-center"
+      >
+        <mat-icon>lock</mat-icon>
+        <mat-icon>visibility </mat-icon>
+        <mat-icon>thumb_up </mat-icon>
+        <mat-icon>notifications</mat-icon>
+        <mat-icon>share</mat-icon>
+        <mat-icon>more_horiz </mat-icon>
+        <mat-icon>close</mat-icon>
+      </div>
+    </div>
+
+    <div class="main-content mr-auto ml-auto">
+      <div class="content-container-tab">
+        <h3>The Important Task</h3>
+      </div>
+
+      <div
+        class="tool-button-wrapper d-flex justify-content-start align-items-center"
+      >
+        <button class="attach-btn">
+          <mat-icon>attach_file</mat-icon>
+          <a>Attach</a>
+        </button>
+        <button class="subtask-btn">
+          <mat-icon>account_tree </mat-icon>
+          <a>Add Sub Task</a>
+        </button>
+        <button class="dependencies-btn">
+          <mat-icon>person_add </mat-icon>
+          <a>Dependencies</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex all-content">
+      <div class="sub-contents">
+        <div class="add-description">
+          <label for="descriptions-tab">Add Description</label>
+          <input type="text" id="descriptions-tab" placeholder="Enter here" />
+        </div>
+
+        <div class="activity-charts">
+          <h4>Activity</h4>
+          <div class="chart-tabs">
+            <button>All</button>
+            <button>Comments</button>
+            <button>History</button>
+          </div>
+          <div class="comments d-flex mt-2 p-2">
+            <mat-icon>account_circle</mat-icon>
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-tab">
+        <h4>Details</h4>
+        <hr />
+
+        <div class="row container-fluid">
+          <div class="col-6">
+            <div class="row mb-3 header-sub">Assigned To</div>
+            <div class="row mb-3 header-sub">Dates</div>
+            <div class="row mb-3 header-sub">Priority</div>
+            <div class="row mb-3 header-sub">Tags</div>
+            <div class="row mb-3 header-sub">Report To</div>
+          </div>
+
+          <div class="col-6">
+            <div class="row mb-3 value-sub">
+              <mat-icon>account_circle</mat-icon>
+              <mat-icon>account_circle</mat-icon>
+              <mat-icon>account_circle</mat-icon>
+            </div>
+
+            <div class="row mb-3 value-sub">12th Aug - 21st Oct</div>
+            <div class="row mb-3 value-sub">Critical</div>
+            <div class="row mb-3 value-sub">design</div>
+            <div class="row mb-3 value-sub">
+              <mat-icon>account_circle</mat-icon>
+              <a>Mr. Subramanyam</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

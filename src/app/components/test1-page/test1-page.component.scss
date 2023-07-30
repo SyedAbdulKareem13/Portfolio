@@ -1,0 +1,495 @@
+.step {
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: cream;
+    height: 10vh;
+}
+
+.v-stepper {
+    position: relative;
+}
+
+.step .circle {
+    background-color: white;
+    border: 1px solid #525252;
+    border-radius: 100%;
+    width: 35px;
+    /* +6 for border */
+    height: 35px;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+
+.step .line {
+    top: 35px;
+    left: 17px;
+    height: 100%;
+    position: absolute;
+    border-left: 0.8px solid #DADCE2;
+}
+
+.step.completed .circle {
+    visibility: visible;
+    background-color: black;
+    border-color: black;
+}
+
+.step.active .circle {
+    visibility: visible;
+    border: 2px solid #FA8C16;
+}
+
+.step.empty .circle {
+    visibility: hidden;
+}
+
+.step.empty .line {
+    /*     visibility: hidden; */
+    /*   height: 150%; */
+    top: 0;
+    height: 150%;
+}
+
+
+.step:last-child .line {
+    border-left: 3px solid white;
+    z-index: -1;
+    /* behind the circle to completely hide */
+}
+
+
+.manager-status {
+    margin-top: 35%;
+    margin-left: 5%;
+
+    .Approver-header {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.02em;
+        color: #526179;
+    }
+}
+
+
+.process-and-descripition {
+    margin-top: 2vh;
+    font-family: 'Roboto';
+    font-style: normal;
+
+
+    .content {
+        margin-top: 1vh;
+        margin-left: 40px;
+        display: inline-block;
+
+        .step-header {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
+            color: #000000;
+        }
+
+        .step-desc {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
+            color: #FA8C16;
+        }
+
+    }
+}
+
+.detail-side {
+    font-family: 'Roboto';
+    font-style: normal;
+
+    .header-main {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        color: #EE4961;
+        margin-top: 4%;
+        margin-left: 2%;
+    }
+
+    .table-light {
+        font-family: 'Roboto';
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        margin-top: 1%;
+        color: #000000;
+
+        .table-content-head {
+            font-weight: 400;
+        }
+
+        .table-content {
+            font-weight: 500;
+        }
+    }
+
+    .terms-btn {
+        border: 1px solid #fff;
+        border-radius: 5px;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        background: #52C41A;
+        width: 155px;
+        height: 35px;
+        display: flex;
+        line-height: 29px;
+        padding: 2px 10px;
+        justify-content: center;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.01em;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+    }
+
+    .reason-resign {
+        .header-reason {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.02em;
+            color: #000000;
+            opacity: 0.5;
+        }
+
+
+        .reasonsfromemployee {
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 2%;
+            margin-top: 1%;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.02em;
+            color: #5E5D5D;
+
+            .reasons{
+                height: 27px;
+                border: 1px solid #ee4961;
+                margin-left: 0%;
+                width: 22%;
+                display: flex;
+                justify-content: center;
+                border-radius: 50px;
+                line-height: 23px;
+            }
+        }
+    }
+
+    .note-form-employee {
+        .note-header {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            color: #45546E;
+        }
+
+        .notes {
+            margin-top: 1%;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            color: #7D838B;
+        }
+    }
+
+    .notice-period {
+        .notice-period-header {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 0.02em;
+            color: #45546E;
+        }
+
+        .notice-period-days {
+            height: 60px;
+            background: #FFFFFF;
+            border: 1px solid rgba(149, 148, 148, 0.6);
+            border-radius: 4px;
+            margin-left: 0%;
+            margin-top: 2%;
+            width: 97%;
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 30%;
+            align-items: center;
+
+
+
+            .notice-period-days-left {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .last-working-date {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .notice-period-days-left-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+
+                opacity: 0.4;
+            }
+
+            .last-working-date-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+                opacity: 0.4;
+            }
+        }
+    }
+
+    .notice-period-change {
+        opacity: 0.5;
+        .notice-period-header {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 0.02em;
+            color: #45546E;
+        }
+
+        .notice-period-days {
+            height: 60px;
+            background: #FFFFFF;
+            border: 1px solid rgba(149, 148, 148, 0.6);
+            border-radius: 4px;
+            margin-left: 0%;
+            margin-top: 2%;
+            width: 97%;
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 30%;
+            align-items: center;
+
+
+
+            .notice-period-days-left {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .last-working-date {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .notice-period-days-left-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+
+                opacity: 0.4;
+            }
+
+            .last-working-date-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+                opacity: 0.4;
+            }
+        }
+    }
+
+    .modified-notice-period {
+        .modified-notice-period-header {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: 0.02em;
+            color: #45546E;
+        }
+
+        .modified-notice-period-days {
+            height: 60px;
+            background: #FFFFFF;
+            border: 1px solid rgba(149, 148, 148, 0.6);
+            border-radius: 4px;
+            margin-left: 0%;
+            margin-top: 2%;
+            width: 97%;
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 13%;
+            align-items: center;
+
+
+
+            .modified-notice-period-days-left {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .modified-last-working-date {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+            }
+
+            .modified-notice-period-days-left-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+                opacity: 0.4;
+            }
+
+            .modified-last-working-date-header {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+                opacity: 0.4;
+            }
+
+            .reason-for-changing-header{
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: #000000;
+                opacity: 0.4;
+            }
+            .reason-for-changing-desc{
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                text-transform: capitalize;
+                color: #000000;
+                margin-left:10%;
+            }
+        }
+    }
+
+    .datepicker-lastdate {
+        height: 35px;
+        background: #F7F9FB;
+        border: 1px solid #6B7A99;
+        border-radius: 4px;
+        margin-left: 0%;
+        width: 28%;
+
+        .label {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            color: #515965;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 15px;
+            margin-top: 4px;
+        }
+    }
+
+    .reason-briefing {
+        width: 97%;
+    }
+
+    .approve-btn {
+        border: 1px solid #fff;
+        border-radius: 8px;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        background: linear-gradient(270deg, #ef4a61, #f27a6c 105.29%) !important;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        line-height: 33px;
+        padding: 2px 10px;
+        justify-content: center;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 0.01em;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+}
+
+.reason-briefing ::ng-deep .form-control:focus {
+    border-color: #B9C0CA;
+    box-shadow: none;
+
+}
+
+::ng-deep .cdk-overlay-pane .mat-datepicker-popup{
+    top: 62%;
+    left: 32%;
+}
+
+::ng-deep .cdk-overlay-connected-position-bounding-box{
+        top: 40%;
+        left: -20%;    
+}

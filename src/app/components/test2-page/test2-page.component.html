@@ -1,0 +1,111 @@
+<div style="background: #f0f2f7; height: 100vh; width: 100%">
+  <mat-card
+    class="resign-req pl-1 pr-1 mat-card"
+    style="margin-top: 6%; margin-left: 8%; width: 90%; height: 83vh"
+  >
+    <div class="top-stat">
+      <div class="iconheader">
+        <div class="svg-resignation"><mat-icon>account_circle</mat-icon></div>
+        <div class="header-request">Resignation Status</div>
+      </div>
+      <div>
+        <button class="retire-btn">Make as Retire</button>
+      </div>
+    </div>
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem;
+        gap: 0%;
+      "
+    >
+      <div class="table-light">
+        <div class="table-content-head row">
+          <div class="col">Emp ID</div>
+          <div class="col">Name</div>
+          <div class="col">
+            <div class="personal-email">
+              Personal Email
+              <div class="email-edit-option">
+                <mat-icon>edit</mat-icon>
+              </div>
+            </div>
+          </div>
+          <div class="col">Submitted On</div>
+          <div class="col">last Working Day(Estimatied)</div>
+        </div>
+        <div *ngFor="let employeeinfo of empdata">
+          <div class="table-content row">
+            <div class="col">{{ employeeinfo.empid }}</div>
+            <div class="col">{{ employeeinfo.name }}</div>
+            <div class="col">{{ employeeinfo.email }}</div>
+            <div class="col">{{ employeeinfo.submiton }}</div>
+
+            <div
+              class="col"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -3 px;
+                column-gap: 5%;
+              "
+            >
+              <div>
+                {{ employeeinfo.lastworkdate }}
+              </div>
+              <div class="days-left">{{ employeeinfo.daysLeft }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reason-btn">
+        <div class="emp-reason-btn">View reason for Resignation</div>
+      </div>
+    </div>
+    <hr />
+    <div class="ScrollStyle">
+      <div *ngFor="let resignationDetailedStatus of process; let i = index">
+        <div class="step active" style="height: 15vh">
+          <div class="circle">
+            <a>{{ resignationDetailedStatus.id }}</a>
+          </div>
+          <div class="line" *ngIf="i + 1 != process.length"></div>
+          <mat-card
+            (click)="redirect()"
+            class="resign-req"
+            style="background-color: #f3f5fc; display: flex; margin-top: 0%"
+          >
+            <div style="display: block; width: 97%">
+              <div class="content row">
+                <div mat-cell class="head-content col-9">
+                  {{ resignationDetailedStatus.resigationStep }}
+                </div>
+                <div class="comp-stat col">Completed on</div>
+                <div class="comp-stat col">Status</div>
+              </div>
+              <br />
+              <div class="content row">
+                <div mat-cell class="des-content col-9">
+                  {{ resignationDetailedStatus.resignationDescription }}
+                </div>
+                <div class="comp-date col">
+                  {{ resignationDetailedStatus.completedDate }}
+                </div>
+                <ul class="stat-approve col">
+                  <li>{{ resignationDetailedStatus.resignationStatus }}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="next-btn">
+              <mat-icon *ngIf="resignationDetailedStatus.isbuttonActive">
+                chevron_right
+              </mat-icon>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

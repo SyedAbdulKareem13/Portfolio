@@ -1,0 +1,148 @@
+<mat-card style="width: 95%; margin-top: 0%; margin-left: 3%; min-height: 77vh">
+  <div style="display: flex; justify-content: flex-start; width: 95%">
+    <button class="cancel-btn" >
+      <mat-icon style="color: #5e5d5d; font-size: 15px">arrow_back</mat-icon>
+      Back
+    </button>
+    <div class="exit-surevey-header" style="margin-left: 40%">
+      Employee Exit Survey
+    </div>
+  </div>
+
+  <div class="ScrollStyle">
+    <div *ngFor="let surveyItems of surveyForm; let i = index">
+      <mat-card
+        style="
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          background-color: #f3f5fc;
+          width: 97%;
+          margin-top: 1%;
+        "
+      >
+        <div class="docs-header">
+          {{ surveyItems.question }}
+        </div>
+      </mat-card>
+      <div
+        class="option-handoverform"
+        style="
+          height: 60px;
+          border: 1px solid #ced4da;
+          margin-left: 0%;
+          width: 97%;
+        "
+      >
+        <div
+          class="form-check form-check-inline"
+          style="margin-left: 2%"
+          *ngFor="let Items of options; let i = index"
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox2"
+            value="option"
+          />
+          <label class="form-check-label" for="inlineCheckbox1">{{
+            Items.option
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <mat-card
+        style="
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          background-color: #f3f5fc;
+          width: 97%;
+          margin-top: 1%;
+        "
+      >
+        <div class="docs-header">
+          {{ notes }}
+        </div>
+      </mat-card>
+      <div class="option-handoverform" style="width: 97%">
+        <input
+          style="height: 13vh; border-radius: 0%"
+          type=""
+          class="form-control"
+          id=""
+          placeholder="N/A"
+        />
+      </div>
+    </div>
+
+    <div>
+      <mat-card
+        style="
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          background-color: #f3f5fc;
+          width: 97%;
+          margin-top: 1%;
+        "
+      >
+        <div class="docs-header">
+          How satisfied were you with Each of the Following
+        </div>
+      </mat-card>
+      <div
+        class="option-handoverform"
+        style="
+          height: 220px;
+          border: 1px solid #ced4da;
+          margin-left: 0%;
+          width: 97%;
+        "
+      >
+        <div style="width: 95%; margin-left: 2%; margin-bottom: 1%">
+          <div class="row">
+            <div class="checkbox-top-header col-2"></div>
+            <div class="checkbox-top-header col-2">Very Satisfied</div>
+            <div class="checkbox-top-header col-2">Satisfied</div>
+            <div class="checkbox-top-header col-2">Neural</div>
+            <div class="checkbox-top-header col-2">Dissatisfied</div>
+            <div class="checkbox-top-header col-2">Very Dissatisfied</div>
+          </div>
+          <div
+            class="row"
+            style="display: flex; justify-content: center"
+            *ngFor="let item of ratingBasedOn"
+          >
+            <div class="checkbox-side-header col-2">{{ item.ratingOn }}</div>
+            <div
+              class="checkbox-survey-review col-2"
+              *ngFor="let checkboxOption of ratingOptions"
+            >
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="{{ checkboxOption.value }}"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+  <div>
+    <button class="submit-btn" style="margin-left: 1%">
+      <mat-icon style="color: #6b7a99; margin-top: 8%; font-size: 20px">
+        done_all</mat-icon
+      >
+      Submit
+    </button>
+  </div>
+</mat-card>

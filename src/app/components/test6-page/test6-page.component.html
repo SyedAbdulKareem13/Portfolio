@@ -1,0 +1,99 @@
+<div class="main">
+  <div class="body">
+    <!-- ---------------------------------------------- -->
+    <div class="headerObjects">
+      <div class="header">Resignation Status</div>
+      <div class="retire-button">
+        <button class="retire-btn">Make As Retire</button>
+      </div>
+    </div>
+    <div class="employeeDetails" *ngFor="let employeeDetails of employeeDetail">
+      <div class="employeeinfo">
+        <div class="employeeHeader">Emp ID</div>
+        <div class="employeeDesc">
+          {{ employeeDetails.employeeID }}
+        </div>
+      </div>
+      <div class="employeeinfo">
+        <div class="employeeHeader">Name</div>
+        <div class="employeeDesc">
+          {{ employeeDetails.employeeName }}
+        </div>
+      </div>
+      <div class="employeeinfo">
+        <div class="employeeHeader">Personal Email</div>
+        <div class="employeeDesc">
+          {{ employeeDetails.employeeEmail }}
+        </div>
+      </div>
+      <div class="employeeinfo">
+        <div class="employeeHeader">Submitted On</div>
+        <div class="employeeDesc">
+          {{ employeeDetails.employeeResignationAppliedDate }}
+        </div>
+      </div>
+      <div class="employeeinfo">
+        <div class="employeeHeader">Last Working Date (Estimated)</div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+          "
+        >
+          <div class="employeeDesc">
+            {{ employeeDetails.employeeLastWorkingDate }}
+          </div>
+          <div class="days-left">
+            {{ employeeDetails.daysLeft }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="returnBack">
+      <div
+        class="returnBackItems"
+        *ngFor="let returnItemDetails of detailsOfItems"
+      >
+        <div class="returnBackItemsHeader">{{ returnItemDetails.item }}</div>
+        <div
+          class="form-check form-check-inline"
+          style="margin-left: 2%"
+          *ngFor="let Items of options; let i = index"
+        >
+          <div>
+            <input
+              class="{{ returnItemDetails.class }}"
+              type="{{ returnItemDetails.type }}"
+              placeholder="{{ returnItemDetails.placeholder }}"
+              value="{{ returnItemDetails.value }}"
+            />
+            <label
+              *ngIf="returnItemDetails.isItrated"
+              class="form-check-label"
+              for="inlineCheckbox1"
+              >{{ Items.option }}</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="NSR-number">
+        <div class="returnBackItemsHeader">NSR Number</div>
+        <div class="option-handoverform">
+          <input type="" class="form-control" id=""  type ="" placeholder="Enter NSR number"/>
+        </div>
+      </div> -->
+
+    <hr />
+      
+    <button class="submit-btn">
+      Submit
+    </button>
+
+
+    <!-- ---------------------------------------------- -->
+  </div>
+</div>

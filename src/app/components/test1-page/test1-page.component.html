@@ -1,0 +1,179 @@
+<div style="background-color: #ffff">
+  <div
+    class="row"
+    style="
+      height: 100vh;
+      width: 65%;
+      background-color: whitesmoke;
+      margin-left: 34%;
+    "
+  >
+    <div class="status-side col-3" style="background-color: #f7f9fb">
+      <div class="manager-status">
+        <div class="Approver-header">Approver</div>
+        <div class="process-and-descripition">
+          <div
+            class="step active"
+            *ngFor="let item of resignationProcess; let i = index"
+          >
+            <div class="v-stepper">
+              <div class="circle">
+                <a>{{ item.id }}</a>
+              </div>
+              <div
+                class="line"
+                *ngIf="i + 1 != resignationProcess.length"
+              ></div>
+            </div>
+            <div class="content">
+              <div class="step-header">{{ item.step }}</div>
+              <div class="step-desc">{{ item.des }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-side col-9" style="background-color: #ffff">
+      <div style="display: flex; justify-content: space-between">
+        <div class="header-main">Resignation</div>
+        <dir><mat-icon>close</mat-icon></dir>
+      </div>
+
+      <br />
+      <div class="detail-bar row">
+        <div class="table-light col-9" *ngFor="let employeeInfo of empdata">
+          <div class="table-content-head row">
+            <div class="col">Emp ID</div>
+            <div class="col">Name</div>
+            <div class="col">Employment Type</div>
+            <div class="col">Date of Submission</div>
+          </div>
+          <br />
+          <div class="table-content row">
+            <div class="col">{{ employeeInfo.empid }}</div>
+            <div class="col">{{ employeeInfo.name }}</div>
+            <div class="col">{{ employeeInfo.emptype }}</div>
+            <div class="col">{{ employeeInfo.date }}</div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button class="terms-btn">
+            <mat-icon style="margin-top: 3%; font-size: 18px; margin-right: 1%"
+              >done_all</mat-icon
+            >Terms & Conditions
+          </button>
+        </div>
+      </div>
+      <br />
+      <div class="reason-resign">
+        <div class="header-reason">Reason for resignation</div>
+        <div class="reasonsfromemployee" *ngFor="let item of reasons">
+          <div class="reasons">
+            {{ item.reason }}
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="note-form-employee">
+        <div class="note-header">Note</div>
+        <div class="notes" *ngFor="let note of Notes">
+          {{ note.noteFromEmp }}
+        </div>
+      </div>
+      <br />
+      <div class="notice-period" [ngClass]="divStyle">
+        <div class="notice-period-header">Notice Period</div>
+        <div class="notice-period-days" *ngFor="let duration of noticePeriod">
+          <div style="row">
+            <div class="notice-period-days-left col">
+              {{ duration.daysLeft }}
+            </div>
+            <div class="notice-period-days-left-header col">
+              Default notice period
+            </div>
+          </div>
+          <div style="row">
+            <div class="last-working-date">
+              {{ duration.lastWorkingDay }}
+            </div>
+            <div class="last-working-date-header">Last working Day</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div [hidden]="isShowDiv" class="modified-notice-period">
+        <div class="modified-notice-period-header">Modified Notice Period</div>
+        <div
+          class="modified-notice-period-days"
+          *ngFor="let modifiedDuration of modifiedNoticePeriod"
+        >
+          <div style="row">
+            <div class="modified-notice-period-days-left col">
+              {{ modifiedDuration.modifieddaysleft }}
+            </div>
+            <div class="modified-notice-period-days-left-header col">
+              Notice period changed
+            </div>
+          </div>
+          <div style="row">
+            <div class="modified-last-working-date col">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder=""
+                (dateInput)="addEvent('input', $event)"
+              />
+            </div>
+            <div class="modified-last-working-date-header col">
+              New Last working Day
+            </div>
+          </div>
+          <div style="row">
+            <div class="reason-for-changing-desc">
+              {{ modifiedDuration.reasonForChanging }}
+            </div>
+            <div class="reason-for-changing-header col">
+              Reason for changing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <div class="datepicker-lastdate">
+        <div class="label" (click)="modifieNoticePeriod()">
+          Change last working day
+          <mat-icon
+            (click)="picker.open()"
+            style="font-size: 19px; margin-left: 3%; margin-top: 1%"
+          >
+            date_range
+          </mat-icon>
+        </div>
+        <mat-form-field>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="reason-briefing">
+        <label class="form-label" for="textAreaExample"></label>
+        <textarea
+          class="form-control"
+          id="textAreaExample"
+          placeholder="Type your comment here"
+          rows="2"
+          style="font-size: 14px"
+        ></textarea>
+      </div>
+      <br />
+      <div class="approve-button-field">
+        <button class="approve-btn">Approve</button>
+      </div>
+    </div>
+  </div>
+</div>

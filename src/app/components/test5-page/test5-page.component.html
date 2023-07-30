@@ -1,0 +1,663 @@
+<!-- <!-- <div class="whole">
+  <mat-card style="width: 38%; height: 90vh">
+    <div class="top-element">
+      <div class="header">{{header}}</div>
+      <div class="cancel-btn">
+        <mat-icon style="font-size: 20px">close</mat-icon>
+      </div>
+    </div>
+    <br />
+    <main>
+      <div *ngFor="let item of process; let i = index">
+        <div class="step active" style="height: 13vh">
+          <div class="circle">
+            <a><mat-icon style="color: #fff;font-size: 20px;margin-top: 4%;">done</mat-icon></a>
+          </div>
+          <div class="resign-req">
+            <div>
+              <div class="content row">
+                <div class="head-content col-6">
+                  {{ item.step }}
+                </div>
+                <div class="comp-stat col">Completed on</div>
+                <div class="comp-stat col">Status</div>
+              </div>
+              <div class="content row">
+                <div  class="desc-content col-6">
+                  {{ item.des }}
+                </div>
+                <div class="comp-date col">{{ item.ldate }}</div>
+                <ul class="stat-approve col">
+                  <li>{{ item.stat }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </mat-card>
+</div> -->
+
+<!-- <div>
+  <form>
+    <ol>
+      <li>
+        I, Ms/Mr.<input
+          [formControl]="name"
+          placeholder="Enter your name"
+          style="background-color: #f6f6f6; border: 0px; width: 225px"
+        />,an adult Indian National residing at and hereinafter referred to as
+        the EMPLOYEE with permanent address. Chennai undertake and confirm that
+        I am/was an employee of
+        <b style="color: #ee4961">CONGRUENT SOLUTIONS PVT. LTD</b> ( hereinafter
+        referred to as “CSPL” ). I am/was an employee since May 09, 2018. My
+        designation at CSPL is/was
+        <input
+          [formControl]="designation_name"
+          placeholder="Enter your designation"
+          style="background-color: #f6f6f6; border: 0px; width: 225px"
+        />
+        the time of my termination of employment.
+      </li>
+      <li>
+        I
+        <input
+          [formControl]="name"
+          placeholder="Enter your name"
+          style="background-color: #f6f6f6; border: 0px; width: 225px"
+        />
+        state that the activities for the Software called
+        <input
+          [formControl]="project_name"
+          placeholder="Enter your project name"
+          style="background-color: #f6f6f6; border: 0px; width: 225px"
+        />
+        (more particularly described in Schedule I) was performed by me as a
+        part of and during the term of my employment with CSPL.
+      </li>
+      <li>
+        I state that the Software was
+        <input
+          [formControl]="work_done"
+          style="background-color: #f6f6f6; border: 0px; width: 225px"
+        />
+        by me during my employment with CSPL / at the instance of CSPL for which
+        full consideration was received by me.
+      </li>
+      <li>
+        Therefore all the rights in the Software including Copyrights are
+        proprietary to my employer CSPL.
+      </li>
+      <li>
+        I agree that CSPL has exclusive rights in the Software and I relinquish
+        all my rights whatsoever; if any, in the Software or part thereof tested
+        by me, during my employment with CSPL. I further undertake that I will
+        cease to hold and will not claim any rights in the aforesaid software.
+      </li>
+      <li>
+        I declare that CSPL has all ownership rights in the Software and I have
+        no objection whatsoever for Copyright to be registered / applied for
+        Registration in the name of CSPL or its nominee.
+      </li>
+      <li>
+        I further state that the software does not contain any objectionable
+        material as per the Copyright Act.
+      </li>
+      <li>
+        I solemnly state that I have read all the contents herein above, and
+        that I have signed hereunder with my free will and without any duress. I
+        state on oath that this Undertaking has been signed by me in good faith.
+      </li>
+    </ol>
+  </form>
+</div> -->
+
+<!-- <div class="admin-description">
+    <div class="id-card">
+      <div class="id-card-header">ID Card</div>
+      <div class="id-card-status">
+        <div class="status-header">Received</div>
+        <div class="status-desc">No</div>
+      </div>
+      <div class="idcard-cost">
+        <div class="cost-header">ID card Cost</div>
+        <div class="cost-desc">INR 100</div>
+      </div>
+    </div>
+    <div class="access-card">
+      <div class="access-header">Access Card</div>
+      <div class="status">N / A</div>
+    </div>
+    <div class="sim-card">
+      <div class="sim-header">SIM</div>
+      <div class="sim-desc">N / A</div>
+    </div>
+</div> -->
+
+<!-- <div class="finance-description">
+  <div class="main-header">Loan Deductions</div>
+  <div class="decriptives">
+    <div class="loan-type">
+      <div class="header">Loan Type</div>
+      <div class="type">Soft Loan</div>
+    </div>
+    <div class="loan-type">
+      <div class="header">Loan Amount</div>
+      <div class="type">INR 10000</div>
+    </div>
+    <div class="loan-type">
+      <div class="header">Loan Paid</div>
+      <div class="type">Soft Loan</div>
+    </div>
+    <div class="loan-type">
+      <div class="header">Loan Due</div>
+      <div class="type">INR 50000</div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="row dash-landing" cdkDropListGroup>
+  <div class="col-3 field-col">
+    <div class="row" style="height: 40px">
+      <div class="col-12 p-0 d-flex align-items-center justify-content-center field-header">
+        Drag and Drop the columns
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <input style="width: 100%" type="text" placeholder="Search Fields" [(ngModel)]="fieldsSearchKey" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 pl-2 fields" cdkDropList [cdkDropListData]="columnFields" (cdkDropListDropped)="drop($event)">
+        <div class="d-flex mt-2 align-items-center field-name"
+          *ngFor="let item of columnFields | search : fieldsSearchKey" cdkDrag>
+          <mat-icon class="field-icon">{{ item.fieldType | fieldIcon }}</mat-icon>
+          <span class="field-label" matTooltip="{{ item.label }}">{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="row">
+      <div class="col-4">
+        <div *ngIf="!widgetNameEditMode" (click)="widgetNameEditMode = true" class="cell">
+          {{ widgetName }}
+        </div>
+        <input style="width: 100%" *ngIf="widgetNameEditMode" [(ngModel)]="widgetName" type="text"
+          (focusout)="widgetNameEditMode = false" />
+      </div>
+      <div class="col d-flex align-items-center">
+        <button mat-stroked-button (click)="createWidget()" style="margin-left: 24px" *ngIf="mode == 'create'">
+          Create Grid
+        </button>
+        <button mat-stroked-button (click)="updateWidget()" style="margin-left: 24px" *ngIf="mode == 'edit'">
+          Update Grid
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-tab-group>
+          <mat-tab label="Data Grid">
+            <div style="background: #f1f1f1; padding: 17px">
+
+              <div class="d-flex flex-row mb-3">
+                <div class="d-flex justify-content-start pt-1 align-items-center">
+                  <div>Grid Fields</div>
+                  <div class="Y-axis-drop-zone" cdkDropList [cdkDropListData]="gridFields"
+                    (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let item of gridFields; let i = index" class="x-axis-label" cdkDrag>
+                      <div class="text" matTooltip="{{ item.label }}">
+                        {{ item.label }}
+                      </div>
+                      <div style="display: inline-block">
+                        <select (change)="changeInFunction(i, $event, 'gridFields')">
+                          <option [value]="func.id" *ngFor="let func of fieldFunctions | fieldFunc : item.fieldType; let j = index" [selected]="func.id == item.function">
+                            {{ func.value }}
+                          </option>
+                        </select>
+                      </div>
+                      <span style="cursor: pointer" (click)="removeItemFromSection('gridFields', i)">❌</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start pt-3 align-items-center" style="margin-left: 20px;">
+                  <div>Group By</div>
+                  <div class="Y-axis-drop-zone" cdkDropList [cdkDropListData]="groupByFields"
+                    (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let item of groupByFields; let i = index" class="y-axis-label" cdkDrag>
+                      <div class="text" matTooltip="{{ item.label }}">
+                        <span style="color: green; margin-left: 2px;">L{{i}}</span> {{ item.label }}
+                      </div>
+                      <div style="display: inline-block">
+                        <select (change)="changeInFunction(i, $event, 'groupByFields')">
+                          <option [value]="func.id" *ngFor="let func of fieldFunctions | fieldFunc : item.fieldType" [selected]="func.id == item.function">
+                            {{ func.value }}
+                          </option>
+                        </select>
+                      </div>
+                      <span style="cursor: pointer" (click)="removeItemFromSection('groupByFields', i)">❌</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </mat-tab>
+          <mat-tab label="Filters">
+            <div style="background: #f1f1f1; padding: 17px">
+              <div class="d-flex justify-content-start pt-3 pb-3 align-items-center">
+                <div>Filters</div>
+                <div class="pre-filter-zone" cdkDropList [cdkDropListData]="preFilters"
+                  (cdkDropListDropped)="drop($event)">
+                  <div (click)="selectActivePreFilter(item, i)" *ngFor="let item of preFilters; let i = index"
+                    [ngClass]="{'prefilter-label-active': activePrefilterIndex == i}" class="prefilter-label" cdkDrag>
+                    <div class="text" matTooltip="{{ item.label }}">
+                      {{ item.label }}
+                    </div>
+                    <span style="cursor: pointer" (click)="removeItemFilter(i)">❌</span>
+                  </div>
+                </div>
+                <div class="spinner-border spin" *ngIf="isFiltersLoading" role="status">
+                  <span class="sr-only"></span>
+                </div>
+                <div class="pre-filter-zone" [style.filter]="isFiltersLoading ? 'blur(5px)' : 'blur(0px)'">
+                  <div class="row" *ngIf="activeFieldFilter">
+                    <button class="filter-types-btn" *ngFor="let item of filtersForField" [ngClass]="{'filter-type-btn-active': activeFieldFilter.type == item.type}" (click)="changeFilterType(item)">
+                      {{ item.label }}
+                    </button>
+                  </div>
+                  <div class="row" *ngIf="activeFieldFilter">
+                    <div class="col-12" style="margin-left: 6px">
+                      <div *ngIf="activeFieldFilter.type == 'individual_value'">
+                        <div class="row mt-2">
+                          <div class="col-12">
+                            <input style="width: 100%" type="text" placeholder="Search Values" [(ngModel)]="filterSearchKey" />
+                          </div>
+                        </div>
+                        <mat-selection-list #individual_value *ngIf="activeFieldFilter?.data.length > 0" [formControl]="individualValues">
+                          <mat-list-option *ngFor="let filterItem of activeFieldFilter?.data | search : filterSearchKey" [value]="filterItem.id">
+                            {{ filterItem.name }}
+                          </mat-list-option>
+                        </mat-selection-list>
+                        <!-- {{ individualValues.value }} -->
+<!-- {{ activeFieldFilter?.data | json }} -->
+<!-- </div>
+                      <div class="mt-3" *ngIf="activeFieldFilter.type == 'date_filters'">
+                        <mat-radio-group *ngIf="activeFieldFilter?.data.length > 0" [formControl]="dateType">
+                          <mat-radio-button class="date-filter-radio" *ngFor="let filterItem of activeFieldFilter?.data">
+                            {{ filterItem }}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="hi">
+  <input type="checkbox" name="check" onclick="onlyOne(this)">
+<input type="checkbox" name="check" onclick="onlyOne(this)">
+<input type="checkbox" name="check" onclick="onlyOne(this)">
+<input type="checkbox" name="check" onclick="onlyOne(this)">
+</div> -->
+
+<div class="container-fluid outline">
+  <!-- <div class="seperation-columns" *ngFor="let item of myColumns">
+        <div class="header-tab">
+          <div class="left-side-icons">
+            <div class="header-name">{{ item.columnHeader }}</div>
+            <div class="count">
+              {{ item.count }}
+            </div>
+            <div class="sort-columns">
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="13"
+                height="14"
+                viewBox="0 0 13 14"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_0_9471)">
+                  <path
+                    d="M6.50001 4.83333H4.33389L4.33334 11.3333H3.25001V4.83333H1.08334L3.79168 2.125L6.50001 4.83333ZM11.9167 9.16667L9.20834 11.875L6.50001 9.16667H8.66668V2.66667H9.75001V9.16667H11.9167Z"
+                    fill="#828282"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_0_9471">
+                    <rect
+                      width="13"
+                      height="13"
+                      fill="white"
+                      transform="translate(0 0.5)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="add-icon">
+            <mat-icon class="add-item">add</mat-icon>
+          </div>
+        </div>
+
+        <div class="list-display">
+          <div class="feature-row">
+            <div class="top-row">
+              <div class="item-header">
+                {{ item.taskHeader }}
+              </div>
+              <div
+                class="status-color"
+                [ngStyle]="{ 'background-color': item.statusColor }"
+              ></div>
+            </div>
+            <div class="more-options">
+              <mat-icon class="option-icon">more_vert </mat-icon>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+  <!-- <div
+        class="seperation-columns"
+        *ngFor="let item of myColumns"
+        cdkDropListGroup
+      >
+        <div
+          class="header-tab"
+          [ngStyle]="{ 'border-bottom': '2px solid ' + item.barColor }"
+        >
+          <div class="left-side-icons">
+            <div class="header-name">{{ item.columnHeader }}</div>
+            <div class="count">{{ item.count }}</div>
+            <div class="sort-columns">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="13"
+                height="14"
+                viewBox="0 0 13 14"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_0_9471)">
+                  <path
+                    d="M6.50001 4.83333H4.33389L4.33334 11.3333H3.25001V4.83333H1.08334L3.79168 2.125L6.50001 4.83333ZM11.9167 9.16667L9.20834 11.875L6.50001 9.16667H8.66668V2.66667H9.75001V9.16667H11.9167Z"
+                    fill="#828282"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_0_9471">
+                    <rect
+                      width="13"
+                      height="13"
+                      fill="white"
+                      transform="translate(0 0.5)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="add-icon">
+            <mat-icon class="add-item">add</mat-icon>
+          </div>
+        </div>
+        <div
+          class="whole-list"
+          cdkDropList
+          [cdkDropListData]="item.task"
+          (cdkDropListDropped)="drop($event, item.columnHeader)"
+        >
+          <div
+          class="list-display"
+          *ngFor="let task of item.task"
+          cdkDrag
+          [cdkDragData]="task"
+          [cdkDragDisabled]="task.isDragging"
+          (cdkDragStarted)="onDragStarted(task)"
+          (cdkDragEnded)="onDragEnded(task)"
+          >
+            <div class="feature-row">
+              <div class="top-row">
+                <div class="item-header">{{ task.taskHeader }}</div>
+                <div
+                  class="status-color"
+                  [ngStyle]="{ 'background-color': task.statusColor }"
+                ></div>
+              </div>
+              <div class="more-options" [matMenuTriggerFor]="menu">
+                <mat-icon class="option-icon">more_vert</mat-icon>
+              </div>
+
+              <mat-menu class="menu-options-all" #menu="matMenu">
+                <button class="menu-options" mat-menu-item>
+                  <mat-icon class="icon-menu">open_in_new</mat-icon>
+                  Open
+                </button>
+                <button class="menu-options" mat-menu-item>
+                  <mat-icon class="icon-menu">edit</mat-icon>
+                  Edit Title
+                </button>
+                <button class="menu-options" mat-menu-item>
+                  <mat-icon class="icon-menu">add</mat-icon>
+                  Add Bug
+                </button>
+              </mat-menu>
+            </div>
+            <div class="bottom-row">
+              <div class="first-in-row">
+                <mat-icon class="schedule-icon">schedule</mat-icon>
+                <div class="date-submitted">
+                  {{ task.submittedDate }}
+                </div>
+              </div>
+              <div class="last-in-row">
+                <mat-icon class="profile-icon">person</mat-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  <div class="container-fluid main">
+    <div class="all-col">
+      <div
+        class="seperation-columns"
+        *ngFor="let item of currentSelected; trackBy: trackByTaskId"
+        cdkDropListGroup
+      >
+        <div
+          class="header-tab"
+          [ngStyle]="{ 'border-bottom': '2px solid ' + item.barColor }"
+        >
+          <div class="left-side-icons">
+            <div class="header-name">{{ item.columnHeader }}</div>
+            <div class="count">{{ item.task.length }}</div>
+            <div class="sort-columns">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="13"
+                height="14"
+                viewBox="0 0 13 14"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_0_9471)">
+                  <path
+                    d="M6.50001 4.83333H4.33389L4.33334 11.3333H3.25001V4.83333H1.08334L3.79168 2.125L6.50001 4.83333ZM11.9167 9.16667L9.20834 11.875L6.50001 9.16667H8.66668V2.66667H9.75001V9.16667H11.9167Z"
+                    fill="#828282"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_0_9471">
+                    <rect
+                      width="13"
+                      height="13"
+                      fill="white"
+                      transform="translate(0 0.5)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="add-icon">
+            <mat-icon class="add-item" (click)="addNewTask(item)">add</mat-icon>
+          </div>
+        </div>
+        <div
+          class="whole-list"
+          cdkDropList
+          [cdkDropListData]="item.task"
+          (cdkDropListDropped)="drop($event, item.columnHeader)"
+        >
+          <!-- <div *ngFor="let task of item.task"> -->
+          <div *ngFor="let task of item.task" style="width: 100%">
+            <div
+              class="list-wrapper"
+              cdkDrag
+              [cdkDragData]="task"
+              [cdkDragDisabled]="isInputFocused || task.isDragging"
+              (cdkDragStarted)="onDragStarted(task)"
+              (cdkDragEnded)="onDragEnded(task)"
+            >
+              <div class="list-display" [@fadeInOut]="task.isNew">
+                <div class="feature-row">
+                  <div class="top-row">
+                    <!-- <div class="item-header">{{ task.taskHeader }}</div> -->
+                    <div
+                      *ngIf="!task.isEditing"
+                      class="item-header"
+                      (click)="task.isEditing = true"
+                    >
+                      {{ task.taskHeader }}
+                    </div>
+                    <input
+                      *ngIf="task.isEditing"
+                      class="item-header-input"
+                      [(ngModel)]="task.taskHeader"
+                      (blur)="onEditBlur(task)"
+                      (keydown.enter)="onEditBlur(task)"
+                      (focus)="onInputFocus()"
+                      (blur)="onInputBlur()"
+                      [attr.id]="'input-task-' + task.id"
+                    />
+                    <div
+                      class="status-color"
+                      [ngStyle]="{ 'background-color': task.statusColor }"
+                    ></div>
+                  </div>
+                  <div class="more-options" [matMenuTriggerFor]="menu">
+                    <mat-icon class="option-icon">more_vert</mat-icon>
+                  </div>
+                  <mat-menu
+                    class="menu-options-all"
+                    #menu="matMenu"
+                    (menuOpened)="onMenuOpened($event)"
+                  >
+                    <button class="menu-options" mat-menu-item>
+                      <mat-icon class="icon-menu">open_in_new</mat-icon>
+                      Open
+                    </button>
+                    <button
+                      class="menu-options"
+                      mat-menu-item
+                      (click)="task.isEditing = true"
+                    >
+                      <mat-icon class="icon-menu">edit</mat-icon>
+                      Edit Title
+                    </button>
+                    <button
+                      class="menu-options"
+                      mat-menu-item
+                      (click)="addNewTask(item, task)"
+                    >
+                      <mat-icon class="icon-menu">add</mat-icon>
+                      Add Bug
+                    </button>
+                    <!-- <button
+                      class="menu-options"
+                      mat-menu-item
+                      (click)="addNewTask(item, 'To Do', $event)"
+                      *ngIf="item.id === 1"
+                    >
+                      <mat-icon class="icon-menu">add</mat-icon>
+                      Add Bug
+                    </button>
+                    <button
+                      class="menu-options"
+                      mat-menu-item
+                      (click)="addNewTask(item, 'In Progress', $event)"
+                      *ngIf="item.id === 2"
+                    >
+                      <mat-icon class="icon-menu">add</mat-icon>
+                      Add Bug
+                    </button> -->
+
+                    <button
+                      class="menu-options"
+                      mat-menu-item
+                      (click)="removeTask(item, task)"
+                    >
+                      <mat-icon class="icon-menu">delete</mat-icon>
+                      Remove
+                    </button>
+                  </mat-menu>
+                </div>
+                <div class="bottom-row">
+                  <div class="first-in-row">
+                    <mat-icon class="schedule-icon">schedule</mat-icon>
+                    <div class="date-submitted">{{ task.submittedDate }}</div>
+                  </div>
+                  <div class="last-in-row">
+                    <mat-icon class="profile-icon">person</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addBtn">
+      <button class="add-col-btn">
+        <mat-icon class="add-icon">add</mat-icon>
+      </button>
+    </div>
+
+    <div class="sprint-wrapper-dropdown">
+      <mat-form-field>
+        <mat-select
+          [(value)]="selectedItem"
+          (selectionChange)="onSelectionChange()"
+        >
+          <mat-option
+            class="option-iteration"
+            *ngFor="let option of selectedIteration"
+            [value]="option.value"  
+          >
+            <div class="p-0 d-flex justify-content-between flex-row">
+              <span class="my-auto"> {{ option.viewValue }}</span>
+              <div class="my-auto d-flex justify-content-start state-status" [ngStyle]="option.statusStateColor">
+                {{ option.statusStateIteration }}
+              </div>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+</div>

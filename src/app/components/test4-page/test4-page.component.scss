@@ -1,0 +1,161 @@
+.cancel-btn {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #000000;
+    border: none;
+    height: 40px;
+    display: flex;
+    padding: 3px 10px;
+    justify-content: flex-start;
+    background: none;
+    border-radius: 4px;
+}
+
+.exit-surevey-header {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.survey-main-header {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #000000;
+
+}
+
+
+::ng-deep .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+.docs-header {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.option-handover {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #000000;
+
+
+}
+
+.checkbox-side-header {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    justify-content: flex-start;
+    color: #000000;
+
+
+
+}
+
+.checkbox-top-header {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    justify-content: center;
+
+    color: #000000;
+}
+
+.checkbox-survey-review {
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    justify-content: center;
+}
+
+
+.form-check-label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+
+}
+
+.option-handoverform {
+    width: 98%;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 0%;
+    align-items: center;
+    margin-left: 0%;
+}
+
+.submit-btn {
+    margin-top: 3%;
+    border: 1px solid#6B7A99;
+    border-radius: 5px;
+    text-transform: capitalize;
+    color: #6B7A99;
+    height: 40px;
+    display: flex;
+    line-height: 33px;
+    padding: 3px 10px;
+    justify-content: center;
+    width: 85px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+}
+
+.ScrollStyle {
+    height: 470px;
+    overflow: scroll;
+}
+
+::ng-deep .input {
+    outline: none !important;
+    box-shadow: none !important;
+}
