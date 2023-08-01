@@ -1,4 +1,4 @@
-<mat-card style="width: 95%; margin-top: 0%; margin-left: 3%; min-height: 77vh">
+<!-- <mat-card style="width: 95%; margin-top: 0%; margin-left: 3%; min-height: 77vh">
   <div style="display: flex; justify-content: flex-start; width: 95%">
     <button class="cancel-btn" >
       <mat-icon style="color: #5e5d5d; font-size: 15px">arrow_back</mat-icon>
@@ -145,4 +145,19 @@
       Submit
     </button>
   </div>
-</mat-card>
+</mat-card> -->
+
+<div class="main">
+  <div class="body">
+    <button mat-icon-button (click)="takePhoto()">
+      <mat-icon>photo_camera</mat-icon>
+    </button>
+    <button mat-icon-button (click)="openCam()">
+      <mat-icon>visibility </mat-icon>
+    </button>
+  </div>
+  <video #videoElement width="640" height="480" [hidden]="!showCamera"></video>
+  <canvas #canvas [hidden]="true"></canvas>
+  <img #image [hidden]="true" />
+  <a #downloadLink [hidden]="true">Download Photo</a>
+</div>

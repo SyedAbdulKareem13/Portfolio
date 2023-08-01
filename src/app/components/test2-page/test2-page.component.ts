@@ -1,85 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import * as p5 from 'p5';
 
 @Component({
   selector: 'app-test2-page',
-  templateUrl: './test2-page.component.html',
+  template: '<div #canvasContainer></div>',
   styleUrls: ['./test2-page.component.scss']
 })
 export class Test2PageComponent implements OnInit {
-  empdata = [
-    {
-      empid: 901212,
-      name: 'Subash Chandra Bose',
-      email: 'subashchandru.19@gmail.com',
-      submiton: '02-Jul-20',
-      lastworkdate: '02-Sept-20',
-      daysLeft: '90 Days Left',
-    },
-  ];
+  private p5Instance: p5;
 
-  process = [
-    {
-      id: 1,
-      resigationStep: 'Sukumaran Acceptance',
-      resignationDescription:
-        'Your manager should accept your resignation, we guess it will be a heartbreak!',
-      completedDate: '24-03-2023',
-      resignationStatus: 'Approval Pending',
-      isbuttonActive: false,
-    },
-    {
-      id: 2,
-      resigationStep: 'IP Out Sign',
-      resignationDescription: 'Hand-over/ take-over from Approval',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-    {
-      id: 3,
-      resigationStep: 'Handover Take Over',
-      resignationDescription: 'Handover/ Take Over Approval',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-    {
-      id: 4,
-      resigationStep: 'System Administration',
-      resignationDescription:
-        'To collect IT accessories and remove login and email etc..',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-    {
-      id: 5,
-      resigationStep: 'Administration',
-      resignationDescription: 'To collect ID Card, Keys, SIM, books',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-    {
-      id: 6,
-      resigationStep: 'Finance',
-      resignationDescription: 'Loan Balance Amount',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-    {
-      id: 7,
-      resigationStep: 'HR Docs',
-      resignationDescription: 'To collect medical insurance and check files',
-      completedDate: '-',
-      resignationStatus: 'Pending',
-      isbuttonActive: true,
-    },
-  ];
+  @ViewChild('canvasContainer') canvasContainer: ElementRef;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.p5Instance = new p5(this.sketch.bind(this), this.canvasContainer.nativeElement);
   }
 
+  private sketch(p: p5) {
+    let vectors = [];
+    let amount = 8000;
+    let speed = 1;
+    let size = 10;
+
+    p.setup = () => {
+      p.createCanvas(p.windowWidth, p.windowHeight);
+      p.background(10);
+      p.stroke(200, 200, 200, 10);
+
+      for (let i = 0; i < amount; i++) {
+        vectors.push(p.createVector(p.random(p.width), p.random(p.height)));
+      }
+    };
+
+    p.draw = () => {
+      for (const vector of vectors) {
+        let randomisation = p.noise(vector.x / 99, vector.y / 99) * p.TWO_PI;
+        vector.add(p.cos(randomisation), p.sin(randomisation));
+
+        p.point(
+          p.constrain(vector.x, 100, p.width - 100),
+          p.constrain(vector.y, 100, p.height - 100)
+        );
+      }
+    };
+  }
 }

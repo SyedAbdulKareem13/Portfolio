@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'app-test3-page',
@@ -73,18 +73,24 @@ export class Test3PageComponent implements OnInit {
   //   },
   // ];
 
+  showCamera = false; // Flag to show/hide the camera stream
+  @ViewChild('videoElement', { static: false }) videoElement: ElementRef<HTMLVideoElement>;
+  @ViewChild('canvas', { static: false }) canvas: ElementRef<HTMLCanvasElement>;
+  @ViewChild('image', { static: false }) image: ElementRef<HTMLImageElement>;
+  @ViewChild('downloadLink', { static: false }) downloadLink: ElementRef<HTMLAnchorElement>;
+
   epicData = [{
     epicName: "Add Epic",
     epicNumber: "Add Feature Number",
     epicSection: 'Add Section ID'
   }
   ]
-  handleMatIconClick(event: Event) {
-    const target = event.target as HTMLElement;
-    if (target.tagName === 'MAT-ICON' || target.tagName === 'BUTTON') {
-      this.openThis();
-    }
-  }
+  // handleMatIconClick(event: Event) {
+  //   const target = event.target as HTMLElement;
+  //   if (target.tagName === 'MAT-ICON' || target.tagName === 'BUTTON') {
+  //     this.openThis();
+  //   }
+  // }
   openThis() {
     console.log('The openThis() function is called.');
   }
@@ -93,5 +99,7 @@ export class Test3PageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }
