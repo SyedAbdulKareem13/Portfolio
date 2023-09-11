@@ -109,9 +109,46 @@
     </div>
   </mat-card>
 </div> -->
+<div class="mainLogin">
+  <div class="login">
+    <h1 *ngIf="logIn">Login</h1>
+    <h2 *ngIf="!logIn">You have Logged In !</h2>
+    <form *ngIf="logIn" id="login-page-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="username" placeholder="Username" required />
+      <div *ngIf="submitted && f.username.invalid" class="error-message">
+        Username is required.
+      </div>
 
-<div class="main">
-  <canvas>sd</canvas>
+      <input type="password" formControlName="password" placeholder="Password" required />
+      <div *ngIf="submitted && f.password.invalid" class="error-message">
+        Password is required.
+      </div>
 
-sd
+      <button type="submit" class="btn btn-primary btn-block btn-large">
+        Let me in.
+      </button>
+    </form>
+
+    <div *ngIf="!logIn" class="loggedIn">
+      <br />
+      <button type="submit" class="btn btn-primary btn-block btn-large" (click)="logout()">
+        Log Out
+      </button>
+    </div>
+  </div>
+
+  <div class="gif-styles" *ngIf="isLoading">
+    <div class="initial-load-bg">
+      <img class="img-style" src="https://assets.kebs.app/images/loginloader.gif" />
+      <div class="title-text">We Are Moving Things For You !</div>
+      <div class="align-items-center" *ngFor="let item of items; let i = index">
+        <div class="checklist-border" [style.visibility]="i === items.length - 1 ? 'hidden' : 'visible'">
+          <mat-icon class="checklist-icon">check</mat-icon>
+        </div>
+        <div class="sub-text" [ngClass]="{ 'main-text': i === items.length - 1 }">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

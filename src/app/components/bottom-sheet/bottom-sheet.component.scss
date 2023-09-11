@@ -1,0 +1,96 @@
+.bottomSheet {
+
+    .headerBottomSheet {
+        font-size: 19px;
+        font-family: 'Roboto';
+    }
+
+    hr {
+        margin-top: 4px;
+        margin-bottom: 5px;
+        height: 1px;
+        background-color: #a7a7a7;
+    }
+
+    .main {
+        padding: 0rem 1rem;
+
+        .searchBar {
+            margin-top: 10px;
+
+            .search-input {
+                border-radius: 4px;
+                background-color: #fff;
+                border: 2px solid #dbdbdb;
+                height: 35px;
+                width: 250px;
+                padding: 15px;
+            }
+
+            .search-input:focus {
+                border: 2px solid #dbdbdb;
+            }
+        }
+
+        .fieldInfo {
+            padding: 1rem;
+
+            .field-hints-header {
+                font-size: 16px;
+                font-family: 'Roboto';
+
+            }
+
+            .fieldCards {
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 2rem;
+
+                .cardOne {
+                    background-color: #e0e0e0;
+                    height: 150px;
+                    width: 250px;
+                    border-radius: 4px;
+                    padding: 1rem;
+                }
+
+                .carousel {
+                    display: flex;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .carousel-item {
+                    flex: 0 0 100%;
+                    transition: transform 0.5s ease-in-out;
+                }
+
+                .carousel-item.active {
+                    transform: translateX(0);
+                }
+
+                .prev,
+                .next {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .prev {
+                    left: 10px;
+                }
+
+                .next {
+                    right: 10px;
+                }
+            }
+
+        }
+    }
+
+
+
+}

@@ -1,0 +1,30 @@
+<div class="bottomSheet">
+  <div class="headerBottomSheet">More Information</div>
+  <hr />
+  <div class="main">
+    <div class="searchBar">
+      <input type="text" class="search-input" placeholder="&#128269; Search" />
+    </div>
+    <div class="fieldInfo">
+      <div class="field-hints-header">Field Hints</div>
+      <div class="fieldCards">
+        <div class="carousel">
+          <div
+            class="carousel-item"
+            *ngFor="let item of fieldData; let i = index"
+            [class.active]="i === currentIndex"
+          >
+            <!-- Display your item content here -->
+            <img [src]="item.imageUrl" alt="Carousel Item {{ i }}" />
+            <div class="carousel-caption">
+              <h3>{{ item.fieldName }}</h3>
+              <p>{{ item.fieldDescription }}</p>
+            </div>
+          </div>
+        </div>
+        <a (click)="prev()" class="prev">&#10094;</a>
+        <a (click)="next()" class="next">&#10095;</a>
+      </div>
+    </div>
+  </div>
+</div>

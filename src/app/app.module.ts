@@ -25,14 +25,22 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu'; 
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+// import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+
+// import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
+
+
 import { Test4PageComponent } from './components/test4-page/test4-page.component';
 import { Test5PageComponent } from './components/test5-page/test5-page.component';
 import { Test6PageComponent } from './components/test6-page/test6-page.component';
 import { Test7PageComponent } from './components/test7-page/test7-page.component';
 import { Test8PageComponent } from './components/test8-page/test8-page.component';
 import { Test9PageComponent } from './components/test9-page/test9-page.component';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 
 
 @NgModule({
@@ -47,7 +55,8 @@ import { Test9PageComponent } from './components/test9-page/test9-page.component
     Test6PageComponent,
     Test7PageComponent,
     Test8PageComponent,
-    Test9PageComponent
+    Test9PageComponent,
+    BottomSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +80,12 @@ import { Test9PageComponent } from './components/test9-page/test9-page.component
     MatExpansionModule,
     DragDropModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatBottomSheetModule
+    // NgxSkeletonLoaderModule
 
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
