@@ -1,135 +1,209 @@
-<!-- <div style="background: #f0f2f7; height: 100vh; width: 100%">
-  <mat-card
-    class="resign-req pl-1 pr-1 mat-card"
-    style="margin-top: 6%; margin-left: 8%; width: 90%; height: 83vh"
-  >
-    <div class="top-stat">
-      <div class="iconheader">
-        <div class="svg-resignation"><mat-icon>account_circle</mat-icon></div>
-        <div class="header-request">Resignation Status</div>
-      </div>
-      <div>
-        <button class="retire-btn">Make as Retire</button>
-      </div>
-    </div>
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        padding: 1.5rem;
-        gap: 0%;
-      "
-    >
-      <div class="table-light">
-        <div class="table-content-head row">
-          <div class="col">Emp ID</div>
-          <div class="col">Name</div>
-          <div class="col">
-            <div class="personal-email">
-              Personal Email
-              <div class="email-edit-option">
-                <mat-icon>edit</mat-icon>
-              </div>
-            </div>
-          </div>
-          <div class="col">Submitted On</div>
-          <div class="col">last Working Day(Estimatied)</div>
-        </div>
-        <div *ngFor="let employeeinfo of empdata">
-          <div class="table-content row">
-            <div class="col">{{ employeeinfo.empid }}</div>
-            <div class="col">{{ employeeinfo.name }}</div>
-            <div class="col">{{ employeeinfo.email }}</div>
-            <div class="col">{{ employeeinfo.submiton }}</div>
-
-            <div
-              class="col"
-              style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: -3 px;
-                column-gap: 5%;
-              "
-            >
-              <div>
-                {{ employeeinfo.lastworkdate }}
-              </div>
-              <div class="days-left">{{ employeeinfo.daysLeft }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reason-btn">
-        <div class="emp-reason-btn">View reason for Resignation</div>
-      </div>
-    </div>
-    <hr />
-    <div class="ScrollStyle">
-      <div *ngFor="let resignationDetailedStatus of process; let i = index">
-        <div class="step active" style="height: 15vh">
-          <div class="circle">
-            <a>{{ resignationDetailedStatus.id }}</a>
-          </div>
-          <div class="line" *ngIf="i + 1 != process.length"></div>
-          <mat-card
-            (click)="redirect()"
-            class="resign-req"
-            style="background-color: #f3f5fc; display: flex; margin-top: 0%"
-          >
-            <div style="display: block; width: 97%">
-              <div class="content row">
-                <div mat-cell class="head-content col-9">
-                  {{ resignationDetailedStatus.resigationStep }}
-                </div>
-                <div class="comp-stat col">Completed on</div>
-                <div class="comp-stat col">Status</div>
-              </div>
-              <br />
-              <div class="content row">
-                <div mat-cell class="des-content col-9">
-                  {{ resignationDetailedStatus.resignationDescription }}
-                </div>
-                <div class="comp-date col">
-                  {{ resignationDetailedStatus.completedDate }}
-                </div>
-                <ul class="stat-approve col">
-                  <li>{{ resignationDetailedStatus.resignationStatus }}</li>
-                </ul>
-              </div>
-            </div>
-            <div class="next-btn">
-              <mat-icon *ngIf="resignationDetailedStatus.isbuttonActive">
-                chevron_right
-              </mat-icon>
-            </div>
-          </mat-card>
-        </div>
-      </div>
-    </div>
-  </mat-card>
-</div> -->
 <div class="mainLogin">
   <div class="login">
-    <h1 *ngIf="logIn">Login</h1>
-    <h2 *ngIf="!logIn">You have Logged In !</h2>
-    <form *ngIf="logIn" id="login-page-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <input type="text" formControlName="username" placeholder="Username" required />
-      <div *ngIf="submitted && f.username.invalid" class="error-message">
-        Username is required.
-      </div>
-
-      <input type="password" formControlName="password" placeholder="Password" required />
-      <div *ngIf="submitted && f.password.invalid" class="error-message">
-        Password is required.
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block btn-large">
-        Let me in.
+    <!-- Download button -->
+    <div style="margin-top: 20%">
+      <button type="submit" class="btn btn-primary btn-block btn-large" (click)="openData()" *ngIf="openViewData">
+        Show Current Data
       </button>
-    </form>
+    </div>
 
-    <div *ngIf="!logIn" class="loggedIn">
+    <div *ngIf="regpage">
+
+
+      <h1 style="width: 400px; margin-left: -45px;    margin-top: -12%;">Student Registration</h1>
+      <h2 *ngIf="loggedIn">You have Logged In !</h2>
+      <h2 *ngIf="!registerFlag && !loggedIn">Log In Page</h2>
+      <h2 *ngIf="registerFlag">Registration Page</h2>
+
+      <!-- Login Form -->
+      <form id="login-page-form" [formGroup]="loginForm" (ngSubmit)="onLogin()" *ngIf="!registerFlag">
+        <input type="text" formControlName="username" placeholder="Username" required />
+        <div *ngIf="submitted && f.username.invalid" class="error-message">
+          Username is required.
+        </div>
+
+        <input type="password" formControlName="password" placeholder="Password" required />
+        <div *ngIf="submitted && f.password.invalid" class="error-message">
+          Password is required.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" *ngIf="!loggedIn">
+          Let me in
+        </button>
+      </form>
+
+
+      <!-- Registration Form -->
+      <form id="registration-form" [formGroup]="registrationForm" (ngSubmit)="onRegister()"
+        *ngIf="registerFlag && !shows">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="first_name" id="firstName" placeholder="Enter your first name" required />
+        <div *ngIf="submitted && registrationForm.get('first_name').invalid" class="error-message">
+          First Name is required.
+        </div>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="last_name" id="lastName" placeholder="Enter your last name" required />
+        <div *ngIf="submitted && registrationForm.get('last_name').invalid" class="error-message">
+          Last Name is required.
+        </div>
+
+        <label for="email">Email Address</label>
+        <input type="email" formControlName="email_id" id="email" placeholder="Enter your email address" required />
+        <div *ngIf="submitted && registrationForm.get('email_id').invalid" class="error-message">
+          Valid Email Address is required.
+        </div>
+
+        <label for="date">Email Address</label>
+        <input type="date" formControlName="birthdate" id="date" placeholder="Enter your birth date " required />
+        <div *ngIf="submitted && registrationForm.get('birthdate').invalid" class="error-message">
+          Valid date is required.
+        </div>
+
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password" placeholder="Choose a password" required />
+        <div *ngIf="submitted && registrationForm.get('password').invalid" class="error-message">
+          Password is required.
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" id="confirmPassword"
+          placeholder="Confirm your password" required />
+        <div *ngIf="submitted && registrationForm.get('confirmPassword').invalid" class="error-message">
+          Password confirmation is required.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Register
+        </button>
+      </form>
+
+      <div class="toggle-buttons">
+        <a style="color: #e6e6e6" *ngIf="registerFlag">Already have an account? Login here!!</a>
+        <button *ngIf="registerFlag" type="button" class="btn btn-primary" (click)="showLogin()">
+          Login
+        </button>
+        <a style="color: #e6e6e6" *ngIf="!registerFlag">New here kindly register!!</a>
+        <button *ngIf="!registerFlag" type="button" class="btn btn-primary" (click)="showRegistration()">
+          Register
+        </button>
+      </div>
+
+
+    </div>
+
+    <mat-card class="data-view" *ngIf="showData" (mouseenter)="playAudio()" (mouseleave)="stopAudio()">
+      <audio id="hoverSound" src="../../../assets/namamusic.mp3"></audio>
+      <div style="font-size: 19px; color: bisque; font-weight: 500">
+        Student Information
+      </div>
+      <ul>
+        <li><strong>First Name:</strong> {{ students.first_name }}</li>
+        <li><strong>Last Name:</strong> {{ students.last_name }}</li>
+        <li><strong>Email:</strong> {{ students.email_id }}</li>
+        <li>
+          <strong>Birthdate:</strong>
+          {{ students.birthdate | date : "mediumDate" }}
+        </li>
+      </ul>
+    </mat-card>
+
+    <div class="gif" *ngIf="showGif" (mouseenter)="showGif = false">
+      <h2 class="success">Success!!!</h2>
+
+      <video src="../../../assets/dropdrop.mp4" style="width: 250px" controls autoplay loop muted width="300"></video>
+    </div>
+
+    <div class="allDataShow" style="margin-top: 5%" *ngIf="openViewData">
+      <button type="submit" class="btn btn-primary btn-block btn-large" (click)="openAllData()">
+        Show All Student Data
+      </button>
+    </div>
+    <div *ngIf="allDataShowStudents">
+      <mat-card style="
+          width: 96vw;
+          margin-left: -198%;
+          display: flex;
+          gap: 2.5rem;
+          justify-content: center;
+          margin-top: 2rem;
+        ">
+        <div class="d-flex justify-content-center" *ngFor="let item of allStudents.data; let i = index">
+          <mat-card style="background-color: beige; gap: 1rem">
+            <div style="color: burlywood; font-weight: 500; font-size: 19px">
+              Student {{ startingIndex + i }}
+            </div>
+            <ul>
+              <li><strong>First Name:</strong> {{ item.first_name }}</li>
+              <li><strong>Last Name:</strong> {{ item.last_name }}</li>
+              <li><strong>Email:</strong> {{ item.email_id }}</li>
+              <li>
+                <strong>Birthdate:</strong>
+                {{ item.birthdate | date : "mediumDate" }}
+              </li>
+            </ul>
+            <div class="d-flex justify-content-around">
+              <button style="width: 65px" class="btn btn-primary btn-block btn-small" (click)="toggleEdit(item)">
+                Edit
+              </button>
+              <button (click)="deleteData(item)" style="
+                  width: 70px;
+                  border: 1px solid red;
+                  height: auto;
+                  margin-top: 0px;
+                  background-color: rgba(255, 63, 63, 0.701);
+                " class="btn btn-primary btn-block btn-small">
+                Delete Data
+              </button>
+            </div>
+            <div *ngIf="item.isEditing">
+              <form class="d-block">
+                <div class="form-group" style="margin-bottom: 5px !important ;">
+                  <label style="color: black;" for="firstName">First Name:</label>
+                  <input style="margin-bottom: 5px !important;" type="text" class="form-control" id="firstName"
+                    [(ngModel)]="item.first_name" [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div class="form-group" style="margin-bottom: 5px !important ;">
+                  <label style="color: black;" for="lastName">Last Name:</label>
+                  <input style="margin-bottom: 5px !important;" type="text" class="form-control" id="lastName"
+                    [(ngModel)]="item.last_name" [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div class="form-group" style="margin-bottom: 5px !important ;">
+                  <label style="color: black;" for="email">Email:</label>
+                  <input style="margin-bottom: 5px !important;" type="email" class="form-control" id="email"
+                    [(ngModel)]="item.email_id" [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div class="form-group" style="margin-bottom: 5px !important ;">
+                  <label style="color: black;" for="birthdate">Birthdate:</label>
+                  <input style="margin-bottom: 5px !important;" type="date" class="form-control" id="birthdate"
+                    [(ngModel)]="item.birthdate" [ngModelOptions]="{ standalone: true }" />
+                </div>
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-primary" type="button" (click)="saveStudent(item)">Save</button>
+                  <button class="btn btn-danger" type="button" (click)="cancelEdit(item)">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+          </mat-card>
+        </div>
+
+        <div class="row">
+          <mat-icon style="cursor: pointer" (click)="closeAllData()">close</mat-icon>
+        </div>
+      </mat-card>
+      <div class="pagination-controls d-flex align-items-center" style="gap: 1.5rem; margin-left: 5rem">
+        <button style="width: 65px" class="btn btn-primary btn-block btn-small" (click)="prevPage()"
+          [disabled]="currentPage === 1">
+          Previous
+        </button>
+        <span style="color: aliceblue; font-size: 12px">Page {{ currentPage }}</span>
+        <button style="width: 65px" class="btn btn-primary btn-block btn-small" (click)="nextFiveData()">
+          Next
+        </button>
+      </div>
+    </div>
+    <div *ngIf="loggedIn" class="loggedIn">
       <br />
       <button type="submit" class="btn btn-primary btn-block btn-large" (click)="logout()">
         Log Out
@@ -140,12 +214,14 @@
   <div class="gif-styles" *ngIf="isLoading">
     <div class="initial-load-bg">
       <img class="img-style" src="https://assets.kebs.app/images/loginloader.gif" />
-      <div class="title-text">We Are Moving Things For You !</div>
+      <div class="title-text">
+        This is purposfully kept and delyed for 2 secs
+      </div>
       <div class="align-items-center" *ngFor="let item of items; let i = index">
-        <div class="checklist-border" [style.visibility]="i === items.length - 1 ? 'hidden' : 'visible'">
+        <div class="checklist-border" [style.visibility]="i == items.length - 1 ? 'hidden' : 'visible'">
           <mat-icon class="checklist-icon">check</mat-icon>
         </div>
-        <div class="sub-text" [ngClass]="{ 'main-text': i === items.length - 1 }">
+        <div class="sub-text" [ngClass]="{ 'main-text': i == items.length - 1 }">
           {{ item }}
         </div>
       </div>

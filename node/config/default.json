@@ -1,0 +1,12 @@
+{
+  "appName": "MYAPP",
+  "apiBaseUrl": "http://localhost:3000",
+  "database": {
+    "host": "localhost",
+    "user": "root",
+    "password": "abcd1234",
+    "database": "student"
+  },
+  "ssl": false,
+  "mongo_conn_str": "mongodb://syed:syed@localhost:27018/?authMechanism=DEFAULT&directConnection=true"
+}

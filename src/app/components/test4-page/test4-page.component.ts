@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild } from '@a
 import { MatBottomSheet, MatBottomSheetConfig, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 import { Test2PageComponent } from '../test2-page/test2-page.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-test4-page',
@@ -24,43 +24,46 @@ export class Test4PageComponent implements OnInit {
 
 
   openMoreInfoSheet() {
-    this.createDialogRef = this.matDialog.open(BottomSheetComponent, {
-      height: '45%',
-      width: '100vw',
-      position: {
-        bottom: 1,
-        left: 0,
-      },
-      hasBackdrop: false,
-      disableClose: true,
-      animation: {
-        entryAnimation: {
-          keyframes: [
-            { transform: 'translateY(-50%)' },
-            { transform: 'translateY(0)' },
-          ],
-          keyframeAnimationOptions: {
-            duration: 250,
-            easing: 'ease-in-out',
-          },
-        },
-        exitAnimation: {
-          keyframes: [
-            { transform: 'translateY(0)' },
-            { transform: 'translateY(-50%)' },
-          ],
-          keyframeAnimationOptions: {
-            duration: 250,
-            easing: 'ease-in-out',
-          },
-        },
-      },
-    });
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.panelClass='custom-dialog-panel',
+    // this.createDialogRef = this.matDialog.open(BottomSheetComponent, {
+    //   height: '48%',
+    //   width: '100vw',
+    //   position: {
+    //     bottom: 1,
+    //     left: 0,
+    //   },
+    //   hasBackdrop: false,
+    //   disableClose: true,
+    //   animation: {
+    //     entryAnimation: {
+    //       keyframes: [
+    //         { transform: 'translateY(-50%)' },
+    //         { transform: 'translateY(0)' },
+    //       ],
+    //       keyframeAnimationOptions: {
+    //         duration: 250,
+    //         easing: 'ease-in-out',
+    //       },
+    //     },
+    //     exitAnimation: {
+    //       keyframes: [
+    //         { transform: 'translateY(0)' },
+    //         { transform: 'translateY(-50%)' },
+    //       ],
+    //       keyframeAnimationOptions: {
+    //         duration: 250,
+    //         easing: 'ease-in-out',
+    //       },
+    //     },
+    //   },
+    // }
+    // );
 
 
-    this.createDialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // this.createDialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 
 }

@@ -1,29 +1,79 @@
 <div class="bottomSheet">
-  <div class="headerBottomSheet">More Information</div>
+  <div class="topRow">
+    <div class="headerBottomSheet">More Information</div>
+    <mat-icon (click)="close()">close</mat-icon>
+  </div>
   <hr />
   <div class="main">
-    <div class="searchBar">
-      <input type="text" class="search-input" placeholder="&#128269; Search" />
+    <div class="searchRow">
+      <div class="searchBar">
+        <mat-icon>search</mat-icon>
+        <input
+          [(ngModel)]="searchTerm"
+          type="text"
+          class="search-input"
+          placeholder="Search"
+        />
+        <!-- Add a search button -->
+        <mat-icon class="ml-auto" matTooltip="Search by field name Only"
+          >info_outline</mat-icon
+        >
+      </div>
+      <button
+        mat-stroked-button
+        class="searchButton"
+        (click)="onSearchButtonClick()"
+      >
+        Search
+      </button>
     </div>
+
     <div class="fieldInfo">
       <div class="field-hints-header">Field Hints</div>
-      <div class="fieldCards">
-        <div class="carousel">
-          <div
-            class="carousel-item"
-            *ngFor="let item of fieldData; let i = index"
-            [class.active]="i === currentIndex"
-          >
-            <!-- Display your item content here -->
-            <img [src]="item.imageUrl" alt="Carousel Item {{ i }}" />
-            <div class="carousel-caption">
-              <h3>{{ item.fieldName }}</h3>
-              <p>{{ item.fieldDescription }}</p>
+      <div class="row d-flex align-items-center">
+        <div (click)="previous()" class="prev col" *ngIf="hasPreviousData()">
+          &#10094;
+        </div>
+
+        <div class="fieldCards col-11">
+          <div class="carousel-container">
+            <div
+              class="carousel"
+              [@carouselAnimation]="currentPage"
+              #carousel
+              class="smooth-transition"
+            >
+              <ng-container
+                *ngIf="visibleItems.length > 0; else noDataTemplate"
+              >
+                <!-- Render cards for visible items -->
+                <div
+                  class="cardOne"
+                  *ngFor="let item of visibleItems;  let i = index"
+                >
+                  <!-- <div class="mr-auto circle">{{ i + 1 }}</div> -->
+                  <h4 class="mr-auto">{{ item.fieldName }}</h4>
+                  <a class="mr-auto">{{ item.fieldDescription }}</a>
+                </div>
+              </ng-container>
+              <ng-template #noDataTemplate>
+                <div class="no-data-message">
+                  <img
+                    src="../../../assets/issue svg.svg"
+                    alt="No Field name "
+                  />
+                  <a>No such field.</a>
+                </div>
+              </ng-template>
+            </div>
+            <div class="pagination" *ngIf="hasPagination()">
+              <span>{{ currentPageDisplay }} of {{ totalPages }}</span>
             </div>
           </div>
         </div>
-        <a (click)="prev()" class="prev">&#10094;</a>
-        <a (click)="next()" class="next">&#10095;</a>
+        <div (click)="next()" class="next col" *ngIf="hasNextData()">
+          &#10095;
+        </div>
       </div>
     </div>
   </div>
