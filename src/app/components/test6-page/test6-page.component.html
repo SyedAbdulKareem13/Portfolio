@@ -1,99 +1,37 @@
-<div class="main">
-  <div class="body">
-    <!-- ---------------------------------------------- -->
-    <div class="headerObjects">
-      <div class="header">Resignation Status</div>
-      <div class="retire-button">
-        <button class="retire-btn">Make As Retire</button>
-      </div>
-    </div>
-    <div class="employeeDetails" *ngFor="let employeeDetails of employeeDetail">
-      <div class="employeeinfo">
-        <div class="employeeHeader">Emp ID</div>
-        <div class="employeeDesc">
-          {{ employeeDetails.employeeID }}
-        </div>
-      </div>
-      <div class="employeeinfo">
-        <div class="employeeHeader">Name</div>
-        <div class="employeeDesc">
-          {{ employeeDetails.employeeName }}
-        </div>
-      </div>
-      <div class="employeeinfo">
-        <div class="employeeHeader">Personal Email</div>
-        <div class="employeeDesc">
-          {{ employeeDetails.employeeEmail }}
-        </div>
-      </div>
-      <div class="employeeinfo">
-        <div class="employeeHeader">Submitted On</div>
-        <div class="employeeDesc">
-          {{ employeeDetails.employeeResignationAppliedDate }}
-        </div>
-      </div>
-      <div class="employeeinfo">
-        <div class="employeeHeader">Last Working Date (Estimated)</div>
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-          "
-        >
-          <div class="employeeDesc">
-            {{ employeeDetails.employeeLastWorkingDate }}
-          </div>
-          <div class="days-left">
-            {{ employeeDetails.daysLeft }}
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="returnBack">
+<div style="width: 100%; height: 100vh" class="mt-6 ml-6">
+  <div style="width: 80%; height: 100vh; margin-top: 5%; margin-left: 5%;">
       <div
-        class="returnBackItems"
-        *ngFor="let returnItemDetails of detailsOfItems"
+        class="row hoverable-row"
+        (mouseenter)="showButtons[0] = true"
+        (mouseleave)="showButtons[0] = false"
       >
-        <div class="returnBackItemsHeader">{{ returnItemDetails.item }}</div>
-        <div
-          class="form-check form-check-inline"
-          style="margin-left: 2%"
-          *ngFor="let Items of options; let i = index"
-        >
-          <div>
-            <input
-              class="{{ returnItemDetails.class }}"
-              type="{{ returnItemDetails.type }}"
-              placeholder="{{ returnItemDetails.placeholder }}"
-              value="{{ returnItemDetails.value }}"
-            />
-            <label
-              *ngIf="returnItemDetails.isItrated"
-              class="form-check-label"
-              for="inlineCheckbox1"
-              >{{ Items.option }}</label
-            >
+        <div class="col">Row 1 Content</div>
+        <div class="col">Content</div>
+        <div class="col">Content</div>
+        <div class="col">Content</div>
+        <div class="col">
+          <div class="hover-row-btns" *ngIf="showButtons[0]">
+            <button class="rp-btn">Button 1</button>
+            <button class="ac-btn">Button 2</button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- <div class="NSR-number">
-        <div class="returnBackItemsHeader">NSR Number</div>
-        <div class="option-handoverform">
-          <input type="" class="form-control" id=""  type ="" placeholder="Enter NSR number"/>
+
+    <div
+      class="row hoverable-row"
+      (mouseenter)="showButtons[1] = true"
+      (mouseleave)="showButtons[1] = false"
+    >
+      <div class="col">Row 2 Content</div>
+      <div class="col">Content</div>
+      <div class="col">Content</div>
+      <div class="col">Content</div>
+      <div class="col">
+        <div class="hover-row-btns" *ngIf="showButtons[1]">
+          <button class="rp-btn">Button 1</button>
+          <button class="ac-btn">Button 2</button>
         </div>
-      </div> -->
-
-    <hr />
-      
-    <button class="submit-btn">
-      Submit
-    </button>
-
-
-    <!-- ---------------------------------------------- -->
+      </div>
+    </div>
   </div>
 </div>
