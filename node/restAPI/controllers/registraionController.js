@@ -163,9 +163,6 @@ class StudentController {
         .json({ success: false, message: "Internal Server Error" });
     }
   }
-}
-
-class openApiTest {
   async fetchDataFromOpenApi(req, res) {
     try {
       const options = {
@@ -206,4 +203,3 @@ class openApiTest {
 }
 
 module.exports = new StudentController();
-module.exports = new openApiTest();

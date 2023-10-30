@@ -1,107 +1,220 @@
-.main {
-    height: 100vh;
+.whole {
     width: 100%;
-    background-color: aliceblue;
+    height: 100vh;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    background-color: #acacac;
 
-    .body {
-        height: 100vh;
-        width: 35%;
+    .popUp {
+        width: 60%;
+        height: 70%;
         background-color: #fff;
-        font-family: 'Roboto';
-        font-style: normal;
+        padding: 1rem;
 
-        .date-of-submission {
+        .highlightedTop {
+            border-radius: 8px;
+            border: 1px solid var(--blue-grey-40, #DADCE2);
+            background: var(--orange-20, #FDE4E2);
 
+
+            .titleRow {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 0rem 2rem;
+
+                h4 {
+                    color: #000;
+                    font-family: 'Roboto';
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                    text-transform: capitalize;
+                }
+
+                mat-icon {
+                    font-size: 16px;
+                }
+            }
+
+            .detailRow {
+                display: flex;
+                justify-content: start;
+                gap: 30%;
+                align-items: center;
+                padding: 0rem 0rem 1rem;
+
+                .empName {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5%;
+                    color: var(--black-100, #111434);
+                    font-family: 'Roboto';
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 16px;
+                    letter-spacing: 0.28px;
+                    text-transform: capitalize;
+                    margin-left: 2%;
+
+                    mat-icon {
+                        font-size: 19px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                .secondaryHeaders {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .titleDetail {
+                        color: var(--black-60, #7D838B);
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px
+                    }
+
+                    .amount {
+                        color: var(--black-100, #111434);
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+
+        .inputFields {
             padding: 1rem;
-            margin-top: 4%;
 
-            .head-date {
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 14px;
-                letter-spacing: 0.02em;
-                color: #000000;
-                opacity: 0.5;
-                flex: none;
-                order: 0;
-                flex-grow: 0;
-                padding: .5rem;
-
-            }
-
-            .date {
-                font-weight: 500;
-                font-size: 14px;
-                line-height: 16px;
-                letter-spacing: 0.02em;
-                color: #000000;
-                padding: .5rem;
-            }
-        }
-    }
-
-    .reason-for-resignation {
-        font-family: 'Roboto';
-        font-style: normal;
-        padding: 1.5rem;
-
-        .head-reason-resignaiton {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 14px;
-            letter-spacing: 0.02em;
-            color: #000000;
-            opacity: 0.5;
-        }
-
-        .reasons {
-            display: flex;
-            justify-content: flex-start;
-            gap: .5rem;
-            padding: .5rem;
-            padding-top: 1rem;
-
-            .reason {
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 16px;
-                letter-spacing: 0.02em;
-                text-transform: capitalize;
-                opacity: 0.7;
+            .custom-input {
                 width: 200px;
-                height: 25px;
-                margin-left: 0%;
+                height: 35px;
+                border-radius: 4px;
+                border: 1px solid var(--blue-grey-40, #DADCE2);
                 display: flex;
                 justify-content: center;
-                line-height: 23px;
-                border: 1px solid #cf0001;
-                border-radius: 17px;
-                color: #5E5D5D;
+                align-items: center;
+                gap: 5%;
+
+                .mat-form-field-underline {
+                    display: none;
+                }
+            }
+
+            .mat-datepicker-content {
+                font-size: 14px;
+                max-width: 200px;
+                padding: 8px;
+            }
+
+            .mat-datepicker-input {
+                height: 30px;
+            }
+
+            label {
+                color: var(--blue-grey-70, #6E7B8F);
+                font-family: Roboto;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+                /* 133.333% */
+                letter-spacing: 0.24px;
+                text-transform: capitalize;
+            }
+
+            .lefted-fields {
+                margin-left: 8%;
+            }
+
+            .notes-input {
+                width: 400px;
+                height: 50px;
+                border-radius: 4px;
+                border: 1px solid var(--blue-grey-40, #DADCE2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5%;
+            }
+        }
+
+
+        .bottomBtns {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 5%;
+            padding-left: 2rem;
+
+            .save-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+                background: var(--primary-gradient, linear-gradient(270deg, #EF4A61 0%, #F27A6C 105.29%));
+                color: var(--neutral-white, #FFF);
+                font-family: Roboto;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+                letter-spacing: -0.28px;
+                text-transform: capitalize;
+                width: 80px;
+                height: 30px;
+                border: 1px solid #EF4A61;
+            }
+
+            .cancel-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+                border: 1px solid var(--blue-grey-100, #45546E);
+                color: var(--blue-grey-100, #45546E);
+                border: 1px solid #45546E;
+                font-family: Roboto;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+                letter-spacing: -0.28px;
+                text-transform: capitalize;
+                width: 80px;
+                height: 30px;
             }
         }
     }
+}
 
-    .notes-from-employee {
-        padding: 1.5rem;
+::ng-deep .custom-input .mat-form-field-underline {
+    display: none !important;
+}
 
-        .head-notes {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
-            letter-spacing: 0.02em;
-            color: #45546E;
+::ng-deep .custom-input .mat-datepicker-content {
+    font-size: 14px;
+    max-width: 200px;
+    padding: 8px;
+}
 
-        }
+::ng-deep .custom-input .mat-datepicker-input {
+    height: 30px;
+}
 
-        .notes-desc{
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0.02em;
-            color: #7D838B;
-            padding: .5rem  ;
-        }
-    }
+::ng-deep .notes-input .mat-form-field-underline {
+    display: none !important;
 }

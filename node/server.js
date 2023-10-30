@@ -1,76 +1,76 @@
-// const express = require("express");
-// const cors = require("cors");
-// const app = express();
-// const port = process.env.PORT || 3000;
-// const bodyParser = require("body-parser");
-// const mysql = require("mysql2");
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const port = process.env.PORT || 3000;
+const bodyParser = require("body-parser");
+const mysql = require("mysql2");
 
-// app.use(
-//   cors({
-//     origin: ["http://localhost:4200"],
-//   })
-// );
-// // app.use(cors());
-// app.use(
-//   cors({
-//     origin: "http://localhost:4200",
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ["http://localhost:4200"],
+  })
+);
+// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
-// const pool = mysql.createPool({
-//   host: "localhost",
-//   user: "root",
-//   password: "abcd1234",
-//   database: "student",
-//   port: 3306,
-//   waitForConnections: true,
-//   connectionLimit: 10, // Adjust as needed
-//   queueLimit: 0,
-// });
+const pool = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "abcd1234",
+  database: "student",
+  port: 3306,
+  waitForConnections: true,
+  connectionLimit: 10, // Adjust as needed
+  queueLimit: 0,
+});
 
-// pool.getConnection((err, connection) => {
-//   if (err) {
-//     console.error("Error connecting to the database:", err);
-//   } else {
-//     console.log("Connected to the database");
-//     connection.release(); // Release the connection
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error("Error connecting to the database:", err);
+  } else {
+    console.log("Connected to the database");
+    connection.release(); // Release the connection
 
-//     // Start the server after the database connection is established
-//     app.listen(port, () => {
-//       console.log(`Your server is running on http://localhost:${port}`);
-//     });
-//   }
-// });
+    // Start the server after the database connection is established
+    app.listen(port, () => {
+      console.log(`Your server is running on http://localhost:${port}`);
+    });
+  }
+});
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-// app.post("/api/getStudentData", async (req, res) => {
-//   try {
-//     const studentData = req.body; // Assuming the frontend sends JSON data
+app.post("/api/getStudentData", async (req, res) => {
+  try {
+    const studentData = req.body; // Assuming the frontend sends JSON data
 
-//     // Insert student data into the database
-//     const connection = await pool.getConnection();
-//     const query = "INSERT INTO student_indo SET ?";
-//     const [result] = await connection.query(query, studentData);
+    // Insert student data into the database
+    const connection = await pool.getConnection();
+    const query = "INSERT INTO student_indo SET ?";
+    const [result] = await connection.query(query, studentData);
 
-//     connection.release();
+    connection.release();
 
-//     if (result.affectedRows === 1) {
-//       res.status(201).json({ success: true, message: "Student data inserted successfully" });
-//     } else {
-//       res.status(500).json({ success: false, message: "Error inserting data" });
-//     }
-//   } catch (error) {
-//     console.error('Error inserting data:', error);
-//     res.status(500).json({ success: false, message: 'Error inserting data' });
-//   }
-// });
+    if (result.affectedRows === 1) {
+      res.status(201).json({ success: true, message: "Student data inserted successfully" });
+    } else {
+      res.status(500).json({ success: false, message: "Error inserting data" });
+    }
+  } catch (error) {
+    console.error('Error inserting data:', error);
+    res.status(500).json({ success: false, message: 'Error inserting data' });
+  }
+});
 
-// app.get("/api/fieldData", (req, res) => {
-//   res.json(fieldData);
-// });
+app.get("/api/fieldData", (req, res) => {
+  res.json(fieldData);
+});
 
 // const fieldData = [
 //   {
@@ -156,49 +156,49 @@
 //   },
 // ];
 
-const express = require("express");
-const cors = require("cors");
-const app = express();
-const port = process.env.PORT || 3000;
-const bodyParser = require("body-parser");
-const studentRoutes = require("../../FrontEnd-Practice/node/restAPI/routes/registrationRoutes");
-const passport = require("passport");
-const config = require("config");
+// const express = require("express");
+// const cors = require("cors");
+// const app = express();
+// const port = process.env.PORT || 3000;
+// const bodyParser = require("body-parser");
+// const studentRoutes = require("../../FrontEnd-Practice/node/restAPI/routes/registrationRoutes");
+// const passport = require("passport");
+// const config = require("config");
 
-const connectToDatabase = require("./user");
+// const connectToDatabase = require("./user");
 
-require("./passportConfig")(passport);
-app.use(passport.initialize());
-app.use(passport.session());
+// require("./passportConfig")(passport);
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-app.use(cors());
-app.use(bodyParser.json());
+// app.use(cors());
+// app.use(bodyParser.json());
 
-app.use("/", studentRoutes);
+// app.use("/", studentRoutes);
 
-const sslEnabled = config.get("ssl");
-const mongoConnStr = config.get("mongo_conn_str");
+// const sslEnabled = config.get("ssl");
+// const mongoConnStr = config.get("mongo_conn_str");
 
-console.log(`SSL Enabled: ${sslEnabled}`);
-console.log(`MongoDB Connection String: ${mongoConnStr}`);
+// console.log(`SSL Enabled: ${sslEnabled}`);
+// console.log(`MongoDB Connection String: ${mongoConnStr}`);
 
-// Connect to the MongoDB database
-connectToDatabase()
-  .then(() => {
-    const sslEnabled = config.get("ssl");
-    const mongoConnStr = config.get("mongo_conn_str");
+// // Connect to the MongoDB database
+// connectToDatabase()
+//   .then(() => {
+//     const sslEnabled = config.get("ssl");
+//     const mongoConnStr = config.get("mongo_conn_str");
 
-    console.log(`SSL Enabled: ${sslEnabled}`);
-    console.log(`MongoDB Connection String: ${mongoConnStr}`);
+//     console.log(`SSL Enabled: ${sslEnabled}`);
+//     console.log(`MongoDB Connection String: ${mongoConnStr}`);
 
-    app.listen(port, () => {
-      console.log(`Your server is running on http://localhost:${port}`);
-    });
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+//     app.listen(port, () => {
+//       console.log(`Your server is running on http://localhost:${port}`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
 
-app.listen(port, () => {
-  console.log(`Your server is running on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Your server is running on http://localhost:${port}`);
+// });

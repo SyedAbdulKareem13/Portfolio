@@ -1,20 +1,113 @@
-<div class="main">
-  <div class="body">
-    <div class="date-of-submission">
-      <div class="head-date">Date of submission</div>
-      <div class="date">{{ dateOfSubmission }}</div>
-    </div>
-    <div class="reason-for-resignation">
-      <div class="head-reason-resignaiton">Reason For Resignation</div>
-      <div class="reasons">
-        <div class="reason">{{ reasonResignationPrimary }}</div>
-        <div class="reason">{{ reasonResignationSecondary }}</div>
-        <div class="reason">{{ reasonResignationTritary }}</div>
+<div class="whole">
+  <div class="popUp">
+    <div class="highlightedTop">
+      <div class="titleRow">
+        <h4>Record Payment</h4>
+        <mat-icon>close</mat-icon>
+      </div>
+      <div class="detailRow">
+        <div class="empName"><mat-icon>account_circle</mat-icon> Batman</div>
+
+        <div class="secondaryHeaders">
+          <div class="titleDetail">Bill # :</div>
+          <div class="amount">#1234</div>
+        </div>
+
+        <div class="secondaryHeaders">
+          <div class="titleDetail">Amount :</div>
+          <div class="amount">$5690</div>
+        </div>
       </div>
     </div>
-    <div class="notes-from-employee">
-      <div class="head-notes">Notes</div>
-      <div class="notes-desc">{{ notesFromEmployee }}</div>
+
+    <div class="inputFields">
+      <form [formGroup]="recordPayment">
+        <div class="inputFields">
+          <label for="paymentMade">Payment Made</label>
+          <mat-form-field class="custom-input">
+            <input matInput type="number" formControlName="paymentMade" />
+          </mat-form-field>
+
+          <label for="paymentNumber">Payment Mode</label>
+          <mat-form-field class="custom-input">
+            <mat-select formControlName="paymentMode">
+              <mat-option
+                *ngFor="let option of paidThroughOptions"
+                [value]="option.value"
+              >
+                {{ option.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="d-flex">
+            <div>
+              <label for="selectedDate">Payment Due Date</label>
+              <mat-form-field class="custom-input">
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="selectedDate"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div class="lefted-fields">
+              <label for="paymentNumber">Payment Number</label>
+              <mat-form-field class="custom-input">
+                <input matInput type="number" formControlName="paymentNumber" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div>
+              <label for="paidThrough">Paid Through</label>
+              <mat-form-field class="custom-input">
+                <mat-select formControlName="paidThrough">
+                  <mat-option
+                    *ngFor="let option of paymentThroughOptions"
+                    [value]="option.value"
+                  >
+                    {{ option.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="lefted-fields">
+
+              <label for="paymentNumber">Reference Number</label>
+              <mat-form-field class="custom-input">
+                <input
+                  matInput
+                  type="number"
+                  formControlName="referenceNumber"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <label for="notes">Notes</label>
+          <mat-form-field class="notes-input">
+            <input
+              matInput
+              type="input"
+              formControlName="notes"
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+    <div class="bottomBtns">
+      <button class="save-btn" (click)="onSaveClick()">Save</button>
+      <button class="cancel-btn">Cancel</button>
     </div>
   </div>
 </div>

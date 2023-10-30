@@ -60,4 +60,13 @@ export class Test6PageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showButtons: boolean[] = [false, false, false, false, false];
+
+  // onRowHover() {
+  //   this.showButtons = true;
+  // }
+
+  // onRowLeave() {
+  //   this.showButtons = false;
+  // }
 }

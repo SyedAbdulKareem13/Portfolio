@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const studentController = require("../controllers/registraionController");
-const openApiController = require("../controllers/openApiController"); 
 const passport = require("passport");
 
 router.post(
@@ -43,6 +42,7 @@ router.post(
 router.get(
   "/api/fetchDataFromOpenApi",
   passport.authenticate("jwt"),
-  openApiController.fetchDataFromOpenApi
+  studentController.fetchDataFromOpenApi
 );
+
 module.exports = router;
